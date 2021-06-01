@@ -7,7 +7,7 @@ class Component {
     render() {
         console.log(`<p> Component ${this.name} rendering`);
     }
-};
+}
 
 ///2
 class UserCard extends Component {
@@ -34,13 +34,13 @@ class UserCard extends Component {
 </div>
 `);
     }
-};
+}
 
 ///3
 const users = [{
         name: "Cleve",
         imageUrl: "http://alex.net",
-        email: "Francesco93@hotmail.com"
+        email: "Francesco93@hotmail.com",
     },
     {
         name: "Pasquale",
@@ -65,16 +65,18 @@ const users = [{
 ];
 
 ///4
-function mapper(object) { return new UserCard(object) };
+const mapper = object => new UserCard(object);
+
 const userCards = users.map(mapper);
 console.log(userCards);
 
 ///5
-const renderedUsers = userCards.forEach(object => object.render())
+const renderedUsers = userCards.forEach((object) => object.render());
 console.log(renderedUsers);
 
 ///6
 console.log(typeof UserCard);
+console.log(userCards[2] instanceof UserCard);
 
 ///7
 console.log(typeof userCards[0]);
